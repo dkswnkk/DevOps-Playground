@@ -1,8 +1,6 @@
 package com.example.firstservice;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/first-service")
@@ -12,4 +10,11 @@ public class FirstServiceController {
     public String welcome() {
         return "Welcome to the FirstService";
     }
+
+    @GetMapping("/message")
+    public String message(@RequestHeader("first-request") String header) {
+        System.out.println(header);
+        return "Hello Word in First Service";
+    }
+
 }
