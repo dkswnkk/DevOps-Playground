@@ -33,6 +33,6 @@ public class UserServiceImpl implements UserService {
                 .encryptedPwd(userDto.getEncryptedPwd())
                 .build();
         userRepository.save(userEntity);
-        return null;
+        return userDto;
     }
 }
