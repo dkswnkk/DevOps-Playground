@@ -31,10 +31,10 @@ spring:
                 baseMessage: Hi, there.
                 preLogger: true
                 postLogger: true
-        - id: user-service
-          uri: lb://USER-SERVICE
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
           predicates:
-             - Path=/user-service/**
+             - Path=/catalog-service/**
           filters:
               #            - AddRequestHeader=second-request, second-request-header2
               #            - AddResponseHeader=second-response, second-response-header2

@@ -1,9 +1,12 @@
 package com.example.catalogservice.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Getter
 @Table(name = "catalog")
 public class CatalogEntity extends BaseTimeEntity implements Serializable {
 
