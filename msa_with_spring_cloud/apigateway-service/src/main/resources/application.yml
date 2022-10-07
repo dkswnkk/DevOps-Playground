@@ -44,5 +44,19 @@ spring:
                 baseMessage: Hi, there.
                 preLogger: true
                 postLogger: true
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**
+          filters:
+              #            - AddRequestHeader=second-request, second-request-header2
+              #            - AddResponseHeader=second-response, second-response-header2
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Hi, there.
+                preLogger: true
+                postLogger: true
+
   main:
     web-application-type: reactive
