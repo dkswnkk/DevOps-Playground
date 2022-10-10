@@ -16,7 +16,7 @@
 | 마이크로서비스 | RESTful API | HTTP Method |
 | --- | --- | --- |
 | Catalog Service | /catalog-service/catalogs : 상품 목록 제공 | GET |
-| User Service | /user-service/users : 사용자 정보 등록<br> /user-service/users : 전체 사용자 조회<br> /user-service/users/{user\_id} : 사용자 정보, 주문 내역 조회 | POST<br>GET<br>GET |
+| User Service | /user-service/users : 사용자 정보 등록<br> /user-service/users : 전체 사용자 조회<br> /user-service/users/{user\_id} : 사용자 정보, 주문 내역 조회 <br> /user-service/login: 사용자 로그인 | POST<br>GET<br>GET<br>POST |
 | Order Service | /order-service/users/{user\_id}/orders : 주문 등록<br>/order-service/users/{user\_id}/orders : 주문 확인 |POST<br>GET|
 
 ## 전체 구성
