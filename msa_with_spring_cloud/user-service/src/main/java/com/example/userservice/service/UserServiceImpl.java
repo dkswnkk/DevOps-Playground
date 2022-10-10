@@ -7,6 +7,8 @@ import com.example.userservice.vo.ResponseOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,23 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<UserEntity> userEntity = userRepository.findUserEntityByEmail(username);
+        if (userEntity.isEmpty()) {
+            throw new UsernameNotFoundException(username);
+        }
+
+        return new User(
+                userEntity.get().getEmail(),
+                userEntity.get().getEncryptedPwd(),
+                true,
+                true,
+                true,
+                true,
+                new ArrayList<>());
     }
 
     @Override
