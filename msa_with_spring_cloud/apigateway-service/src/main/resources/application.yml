@@ -84,4 +84,4 @@ spring:
   main:
     web-application-type: reactive
 token:
-  secret: user-token
+  secret: user_token

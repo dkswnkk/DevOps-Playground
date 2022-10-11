@@ -23,11 +23,8 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
     private Environment environment;
 
-    public AuthorizationHeaderFilter() {
-        super(Config.class);
-    }
-
     public AuthorizationHeaderFilter(Environment environment) {
+        super(Config.class);
         this.environment = environment;
     }
 
@@ -44,7 +41,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
                 return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
             }
             String authorizationHeader = request.getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
-            String token = authorizationHeader.replace("Bearer", "");
+            String token = authorizationHeader.replace("Bearer ", "");
 
             if (!isJwtValid(token)) {
                 return onError(exchange, "JWT token is not valid", HttpStatus.UNAUTHORIZED);
@@ -63,11 +60,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         } catch (Exception e) {
             return false;
         }
-        if (!hasText(subject)) {
-            return false;
-        }
-
-        return true;
+        return hasText(subject);
     }
 
     // Mono, Flux -> Spring WebFlux
