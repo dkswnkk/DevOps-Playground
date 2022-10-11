@@ -20,4 +20,5 @@
 | Order Service | /order-service/users/{user\_id}/orders : 주문 등록<br>/order-service/users/{user\_id}/orders : 주문 확인 |POST<br>GET|
 
 ## 전체 구성
-<img width="824" alt="image" src="https://user-images.githubusercontent.com/74492426/194121754-5afc4789-d3d3-4127-9b6e-4aa17a111ce6.png">
+<img width="952" alt="image" src="https://user-images.githubusercontent.com/74492426/194121754-5afc4789-d3d3-4127-9b6e-4aa17a111ce6.png">
+<img width="952" alt="image" src="https://user-images.githubusercontent.com/74492426/195058966-4e72989a-d9aa-475e-a8de-a53e26f5b922.png">
