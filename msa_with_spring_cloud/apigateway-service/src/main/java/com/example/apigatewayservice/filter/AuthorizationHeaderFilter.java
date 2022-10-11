@@ -23,6 +23,10 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
     private Environment environment;
 
+    public AuthorizationHeaderFilter() {
+        super(Config.class);
+    }
+
     public AuthorizationHeaderFilter(Environment environment) {
         this.environment = environment;
     }
