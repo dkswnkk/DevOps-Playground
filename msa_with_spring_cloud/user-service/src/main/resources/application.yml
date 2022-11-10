@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: user-service
+
+  cloud:
+    config:
+      name: ecommerce
+  config:
+    import: optional:configserver:http://127.0.0.1:8888
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
