@@ -3,4 +3,4 @@ token:
   secret: user_token
   
 gateway:
-  ip: 58.235.126.9
+  ip: 192.168.35.211

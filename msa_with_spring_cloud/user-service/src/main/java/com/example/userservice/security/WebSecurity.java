@@ -32,7 +32,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/error/**").permitAll()
                 .antMatchers("/**")
-                .hasIpAddress("172.20.10.8")
+                .hasIpAddress("192.168.35.211")
                 .and()
                 .addFilter(getAuthenticationFilter());  // 이 필터 통과한 데이터만 허용
 
