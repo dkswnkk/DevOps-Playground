@@ -4,11 +4,18 @@ spring:
   application:
     name: user-service
 
-  cloud:
-    config:
-      name: ecommerce
+#  cloud:
+#    config:
+#      name: ecommerce
+#  config:
+#    import: optional:configserver:http://127.0.0.1:8888
+
+  # Spring Cloud Config 연동
   config:
-    import: optional:configserver:http://127.0.0.1:8888
+    import:
+      - classpath:/bootstrap.yml
+  #
+
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -39,6 +46,11 @@ logging:
   level:
     com.example.user-service: DEBUG
 
-#token:
-#  expiration_time: 86400000
-#  secret: user_token
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
+  endpoint:
+    refresh:
+      enabled: true
