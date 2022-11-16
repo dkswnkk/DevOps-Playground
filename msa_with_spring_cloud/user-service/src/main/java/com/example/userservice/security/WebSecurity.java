@@ -29,11 +29,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {  // 권한 부분
         http.csrf().disable();
 //        http.authorizeRequests().antMatchers("/swagger*/**").permitAll();
-        http.authorizeRequests().antMatchers("/actuator/**").permitAll();
+
         http.authorizeRequests()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/error/**").permitAll()
+                .antMatchers("/health_check").permitAll()
                 .antMatchers("/**")
-                .hasIpAddress("192.168.35.211")
+                .hasIpAddress("192.168.35.255")
                 .and()
                 .addFilter(getAuthenticationFilter());  // 이 필터 통과한 데이터만 허용
 
