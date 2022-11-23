@@ -32,6 +32,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests().antMatchers("/swagger*/**").permitAll();
 
         http.authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers("/error/**").permitAll()
